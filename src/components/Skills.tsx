@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { skills } from "../utils"
 import {motion} from "motion/react"
 const Skills = () => {

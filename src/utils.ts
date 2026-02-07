@@ -39,15 +39,7 @@ export const projects: Array<Project> = [
     tags: ["HTML", "CSS", "Javascript"],
     github: "https://www.github.com/muhammadfurqanrasool/"
     },
-    // {title: "Connectify",
-    // bio : "A social media clone, which allows users to interact, add friends, read news feeds and chat with others",
-    // tags: ["ReactJS", "Tailwind", "CSS", "Javascript"],
-    // github: "https://www.github.com/muhammadfurqanrasool/"
-    // },
-    
     ]
-
-
 
 export const email = "muhammadfurqanrasool@gmail.com"
 export const github = "https://github.com/muhammadfurqanrasool"
