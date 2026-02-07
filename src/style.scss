@@ -8,6 +8,9 @@ $color-bg3: #202020;
 $gray: #9CA3AF;
 $color-crimson:#A3162A;
 $color-rose: #F43F5E;
+$layout-sm: 960px;
+
+
 * {
     padding: 0;
     margin: 0;
@@ -468,4 +471,184 @@ footer {
 
 h1 {
     font-family: JetBrains Mono, monospace;
+}
+
+@media screen and (max-width: $layout-sm) {
+    html {
+        overflow: hidden;
+    }
+    .circle {
+        top: 0;
+        left: 4rem;
+        width: 80vw;
+    }
+    nav {
+        display: none;
+    }
+    main {
+        height: 100vh;
+        width: 100vw;
+        overflow-x: hidden;
+        .hero {
+            flex-direction: column;
+            padding: 1rem;
+            text-align: center;
+            gap: 1rem;
+            .left {
+                order: 2;
+                span {
+                    font-size: 1rem;
+                }
+                h1 {
+                    font-size: 2rem;
+
+                    span {
+                        font-size: inherit;
+                    }
+                }
+                p {
+                    width: fit-content ;
+                }
+
+                .btns {
+                    justify-content: center;
+                }
+            }
+            .right {
+                .img {
+                    height: 200px;
+                    width: 200px;
+                }
+
+                // display: none;
+            }
+        }
+
+        .about {
+            // background-color: blue;
+            padding: 1rem;
+            flex-direction: column;
+
+            p {
+                width: auto;
+            }
+
+            .cards {
+                flex-direction: column;
+                .card {
+                    width: 100%;
+                }
+            }
+        }
+
+        .skills {
+            padding: 1rem;
+            width: 100%;
+
+            .skills-cards {
+                width: 90%;
+                .skill-card {
+                    width: 100%;
+                    .progressbar {
+                        width: 100%;
+                    }
+                }
+            }
+
+
+        }
+
+        section.project {
+            // width: 100vw;
+
+            h1 {
+                margin-bottom: 1rem;
+            }
+            padding: 1rem;
+            .project-cards {
+                margin-top: 1rem;
+                width: 90%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .project-card {
+                    width: 100%;
+                    text-align: center;
+
+                    p {
+                        width: auto;
+                    }
+
+                    .tags {
+                        justify-content: center;
+                    }
+
+                    .links {
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                }
+            }
+        }
+
+        .contact {
+            width: 100vw;
+            padding: 1rem;
+            .container {
+                flex-direction: column;
+                overflow: hidden;
+                .left {
+                    width: 100%;
+                    text-align: center;
+                    overflow: hidden;
+                    align-items: center;
+                    p {
+                        order: 2;
+                        width: auto;
+                        margin-bottom: 0;
+                    }
+                    .socials {
+                        margin-top: 0;
+                        margin-bottom: 1rem;
+                        order: 1;
+                        // display: none;
+                        align-items: center;
+                        .social {
+                            text-align: center;
+                            font-size: small;
+
+                            // &:nth-child(1) {
+                            //     order: 2;
+                            // }
+                            // &:nth-child(2) {
+                            //     order: 1;
+                            // }
+                        }
+
+                    }
+
+                }
+                .right {
+                    margin-top: 0;
+                    form {
+                        input, textarea  {
+                            width: auto;
+                        }
+                    }
+                }
+
+            }
+        }
+        footer {
+            padding: 0;
+            height: 3rem;
+            overflow: hidden;
+            p {
+                color: $gray;
+                width: 100%;
+                text-align: center;
+                font-size: small;
+            }
+        }
+    }
 }
