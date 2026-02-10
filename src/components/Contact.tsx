@@ -1,24 +1,32 @@
 import {  FaTelegramPlane } from "react-icons/fa"
-import { email, linkedin, location } from "../utils"
+import {  email, linkedin, location } from "../utils"
 import { CgMail } from "react-icons/cg"
 import { GrLocationPin } from "react-icons/gr"
 import { CiLinkedin } from "react-icons/ci"
-import axios from "axios"
+import { addDoc, collection } from "firebase/firestore"
+import { db } from "../firebase"
 
 const Contact = () => {
-    const  handleSubmit = (e:React.SubmitEvent<HTMLFormElement>)=>{
+    const  handleSubmit = async(e:React.SubmitEvent<HTMLFormElement>)=>{
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const data = {
-            name: formData.get("name"),
+            fullName: formData.get("name"),
             email: formData.get("email"),
             message: formData.get("message")
         }
-        try {
-            axios.post("http://localhost:5500/api/messages",data);
-            alert("Message sent successfully");
-        } catch (error) {
-            alert("Failed to send message");
+        if(data.fullName != "" && data.email != "" && data.message != "") {
+
+            try {
+                const docRef = await addDoc(collection(db, "mesages"), data);
+                console.log("Document written with ID: ", docRef.id);
+                alert("Response Submitted!")
+            } catch (e) {
+                console.error("Error adding document: ", e);
+                alert("Response could not be submitted.")
+            }
+        }else {
+            alert("Form fields required!")
         }
     }
   return (
@@ -46,7 +54,7 @@ const Contact = () => {
                 <form onSubmit={handleSubmit}>
                     <input type="text" placeholder="Your Name" name="name" required/>
                     <input type="email" placeholder="Your Email" name="email" required/>
-                    <textarea name="message" rows={10} id="message" placeholder="Your Message..."></textarea>
+                    <textarea required name="message" rows={10} id="message" placeholder="Your Message..."></textarea>
                     <button className="primary"><FaTelegramPlane/> <span>Send Message</span></button>
                 </form>
             </div>

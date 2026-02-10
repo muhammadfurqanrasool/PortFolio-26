@@ -4,7 +4,7 @@ export type Skill = {
 }
 export type Project = {
     title: String,
-    bio: String,
+    description: String,
     tags : Array<String>,
     link?: String,
     github?: String
@@ -25,17 +25,17 @@ export const skills: Array<Skill>  = [
 
 export const projects: Array<Project> = [
     {title: "Connectify",
-    bio : "A social media clone, which allows users to interact, add friends, read news feeds and chat with others",
+    description : "A social media clone, which allows users to interact, add friends, read news feeds and chat with others",
     tags: ["ReactJS", "Tailwind", "CSS", "Javascript", "Git"],
-    github: "https://www.github.com/muhammadfurqanrasool/"
+    github: "https://github.com/muhammadfurqanrasool/CONNECTIFY"
     },
     {title: "Connectify - Backend",
-    bio : "Backend for Connectify, which handles user authentication, post management and real-time chat",
+    description : "Backend for Connectify, which handles user authentication, post management and real-time chat",
     tags: ["NodeJS","ExpressJS", "Javascript", "Json Web Tokens", "Mongoose"],
-    github: "https://www.github.com/muhammadfurqanrasool/"
+    github: "https://github.com/muhammadfurqanrasool/CONNECTIFY-BACKEND"
     },
     {title: "Chessboard",
-    bio : "A social media clone, which allows users to interact, add friends, read news feeds and chat with others",
+    description : "A frontend chessboard design with plain HTML,CSS and JS",
     tags: ["HTML", "CSS", "Javascript"],
     github: "https://www.github.com/muhammadfurqanrasool/"
     },
@@ -45,3 +45,14 @@ export const email = "muhammadfurqanrasool@gmail.com"
 export const github = "https://github.com/muhammadfurqanrasool"
 export const linkedin = "https://linkedin.com/in/muhammadfurqanrasool"
 export const location = "Model Colony, Malir, Karachi"
+
+
+export const firebaseConfig = {
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSEGE_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID
+};
+export const baseURL = import.meta.env.VITE_API;
