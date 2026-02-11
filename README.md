@@ -5,3 +5,4 @@ Uses:
 - Typescript for type safety and easy debugging
 - Sass for easy and interesting css syntax, makes styling way more easier than plain CSS
 - Firebase for database, formdata submission and dynamic data
+- Motion to implement animations
