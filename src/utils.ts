@@ -10,19 +10,6 @@ export type Project = {
     github?: String
 }
 
-export const skills: Array<Skill>  = [
-    {title: "ReactJS", value: 92},
-    {title: "Typescript", value: 80},
-    {title: "NextJS", value: 85},
-    {title: "NodeJS", value: 95},
-    {title: "ExpressJS", value: 93},
-    {title: "MongoDB", value: 90},
-    {title: "Firebase", value: 75},
-    {title: "Tailwind", value: 79},
-    {title: "Prisma", value: 50},
-    
-]
-
 export const email = "muhammadfurqanrasool@gmail.com"
 export const github = "https://github.com/muhammadfurqanrasool"
 export const linkedin = "https://linkedin.com/in/muhammadfurqanrasool"
