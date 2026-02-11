@@ -1,6 +1,21 @@
-import { skills } from "../utils"
+import { collection, getDocs } from "firebase/firestore"
+import { db } from "../firebase"
 import {motion} from "motion/react"
+import { useEffect, useState } from "react"
+import type { Skill } from "../utils"
 const Skills = () => {
+    const [skills,setSkills] = useState<Array<Skill> | null>(null);
+    const fetchSkills = async()=>{
+        const querySnapshot = await getDocs(collection(db, "skills"));
+      const skillData = querySnapshot.docs.map(doc => ({
+        ...doc.data()
+      }));
+      setSkills(skillData);
+    }
+
+    useEffect(()=>{
+        fetchSkills()
+    },[])
   return (
     <section className="skills" id="skills">
         <h1>My <span className="color">Skills</span></h1>

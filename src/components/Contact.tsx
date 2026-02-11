@@ -5,25 +5,36 @@ import { GrLocationPin } from "react-icons/gr"
 import { CiLinkedin } from "react-icons/ci"
 import { addDoc, collection } from "firebase/firestore"
 import { db } from "../firebase"
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+
 
 const Contact = () => {
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState<boolean>(false);
     const  handleSubmit = async(e:React.SubmitEvent<HTMLFormElement>)=>{
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const data = {
             fullName: formData.get("name"),
             email: formData.get("email"),
-            message: formData.get("message")
+            message: formData.get("message"),
+            timestamps: Date.now(),
+            id: Date.now()
         }
         if(data.fullName != "" && data.email != "" && data.message != "") {
-
             try {
-                const docRef = await addDoc(collection(db, "mesages"), data);
+                console.log("Here")
+                setLoading(true)
+                const docRef = await addDoc(collection(db, "messages"), data);
                 console.log("Document written with ID: ", docRef.id);
-                alert("Response Submitted!")
+                alert("Response Submitted!");
+                navigate("/", {replace: true});
             } catch (e) {
                 console.error("Error adding document: ", e);
                 alert("Response could not be submitted.")
+            } finally {
+                setLoading(false)
             }
         }else {
             alert("Form fields required!")
@@ -55,7 +66,7 @@ const Contact = () => {
                     <input type="text" placeholder="Your Name" name="name" required/>
                     <input type="email" placeholder="Your Email" name="email" required/>
                     <textarea required name="message" rows={10} id="message" placeholder="Your Message..."></textarea>
-                    <button className="primary"><FaTelegramPlane/> <span>Send Message</span></button>
+                    <button disabled={loading} className="primary"><FaTelegramPlane/> <span>Send Message</span></button>
                 </form>
             </div>
         </div>

@@ -1,9 +1,22 @@
-import { FaGithub } from "react-icons/fa"
-import { projects } from "../utils"
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase";
+import type { Project } from "../utils";
 
 const Projects = () => {
+    const [projects,setProjects] = useState<Array<Project> | null>(null);
+        const fetchProjects = async()=>{
+            const querySnapshot = await getDocs(collection(db, "projects"));
+          const projectData = querySnapshot.docs.map(doc => ({
+            ...doc.data()
+          }));
+          setProjects(projectData);
+        }
+    
+        useEffect(()=>{
+            fetchProjects()
+        },[])
 
   return (
     <section className="project" id="projects">
@@ -23,9 +36,8 @@ const Projects = () => {
                             <Link target="_blank" to={`${el.github}`}>
                         <div className="github">
                             <div className="icon">
-                                <FaGithub/>
                             </div>
-                            Github ⟶
+                            GitHub ↗
                         </div>
                             </Link>
                     </div>

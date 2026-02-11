@@ -4,7 +4,7 @@ const About = () => {
   return (
     <section className='about' id='about'>
         <h2 className='section-title'>About <span className="color">Me</span></h2>
-        <p className='section-description'>I'm a full stack web developer with a passion for building elegant, high-performance applications. I enjoy working across the entire stack -- from crafting pixel-perfect interfaces to designing robust backend architectures and databases.</p>
+        <p className='section-description'>I'm a full stack web developer with a passion for building elegant, high-performance applications. I enjoy working across the entire stack, from crafting pixel-perfect interfaces to designing robust backend architectures and databases.</p>
         <div className="cards">
             <div className="card">
                 <div className="icon">

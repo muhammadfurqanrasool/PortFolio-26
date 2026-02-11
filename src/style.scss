@@ -386,30 +386,30 @@ section.project {
                 align-items: center;
                 gap: 0.5rem;
                 margin-top: 1rem;
+                margin-bottom: 1rem;
                 flex-wrap: wrap;
                 .tag {
-                    background-color: rgba($color: $color-crimson, $alpha: 0.2);
-                    color: $color-rose;
-                    padding: 0.25rem 0.5rem;
-                    font-size: 0.60rem;
+                    background-color: rgba(255,255,255,0.04);
+                    color: $gray;
+                    padding: 0.25rem 0.75rem;
+                    font-size: small;
                     border-radius: 1rem;
-                    border: 1px solid $color-rose;
+                    border: 1px solid #333333;
 
                     
                 } 
             }
             .links {
                 position: absolute;
-                bottom: 10px;
+                bottom: 1rem;
                 display: flex;
                 align-items: center;
-                margin-top: 1rem;
                 .github {
-
                     display: flex;
                     align-items: center;
                     gap: 0.5rem;
-                    color: #fff;
+                    color: $color-primary;
+                    font-weight: bold;
                     justify-content: center;
                 }
             }
@@ -569,6 +569,8 @@ h1 {
                 }
 
             }
+
+            
         }
 
         .about {
@@ -704,5 +706,11 @@ h1 {
      h1,h2,h3{
         line-height: 2rem !important;
         font-size: 2rem !important;
+     }
+     .hero {
+         .arrow {
+             bottom: 1rem;
+            }
+
      }
 }
