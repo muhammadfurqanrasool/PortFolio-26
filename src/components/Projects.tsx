@@ -8,9 +8,17 @@ const Projects = () => {
     const [projects,setProjects] = useState<Array<Project> | null>(null);
         const fetchProjects = async()=>{
             const querySnapshot = await getDocs(collection(db, "projects"));
-          const projectData = querySnapshot.docs.map(doc => ({
-            ...doc.data()
-          }));
+          const projectData = querySnapshot.docs.map(doc => {
+            const data = doc.data();
+            return {
+                id: data.id,
+                title: data.title as string,
+                description : data.description as string,
+                tags: data.tags as String[],
+                githubLink: data.githubLink as string,
+                liveLink: data.liveLink as string
+            }
+          });
           setProjects(projectData);
         }
     

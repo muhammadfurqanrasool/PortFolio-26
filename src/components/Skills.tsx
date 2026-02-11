@@ -7,10 +7,17 @@ const Skills = () => {
     const [skills,setSkills] = useState<Array<Skill> | null>(null);
     const fetchSkills = async()=>{
         const querySnapshot = await getDocs(collection(db, "skills"));
-      const skillData = querySnapshot.docs.map(doc => ({
-        ...doc.data()
-      }));
-      setSkills(skillData);
+      const skillData = querySnapshot.docs.map(doc =>  {
+        const data = doc.data();
+        return {
+            id: data.id,
+            title: data.title as string,
+            value: data.value as number
+        }
+      });
+      
+      
+        setSkills(skillData);
     }
 
     useEffect(()=>{

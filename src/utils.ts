@@ -3,6 +3,7 @@ export type Skill = {
     value : Number
 }
 export type Project = {
+    id? : string,
     title: String,
     description: String,
     tags : Array<String>,
