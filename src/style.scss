@@ -701,7 +701,7 @@ h1 {
 }
 
 @media screen and (max-width: $layout-sm){
-     main {
-
+     h1,h2,h3{
+        font-size: 2rem !important;
      }
 }
