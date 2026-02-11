@@ -702,6 +702,7 @@ h1 {
 
 @media screen and (max-width: $layout-sm){
      h1,h2,h3{
+        line-height: 2rem imortant !important;
         font-size: 2rem !important;
      }
 }
