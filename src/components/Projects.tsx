@@ -41,7 +41,7 @@ const Projects = () => {
                         })}
                     </div>
                     <div className="links">
-                            <Link target="_blank" to={`${el.github}`}>
+                            <Link target="_blank" to={`/${el.github}`}>
                         <div className="github">
                             <div className="icon">
                             </div>
