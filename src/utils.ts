@@ -8,7 +8,7 @@ export type Project = {
     description: String,
     tags : Array<String>,
     link?: String,
-    github?: String
+    githubLink?: String
 }
 
 export const email = "muhammadfurqanrasool@gmail.com"
